@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Geolocate test</title>
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+      $(function() {
+        
+        var displaySupport = function(supported) {
+          if (supported) {
+            $('#geolocationSupported').text('YES');
+            $('#geolocationSupported').addClass('good');
+          } else {
+            $('#geolocationSupported').text('NO');
+            $('#geolocationSupported').addClass('bad');
+          };
+        };
+        
+        var displayPosition = function(position) {
+          console.log(position);
+          $('#geolocationPosition').text(position.coords.latitude + ', ' + position.coords.longitude);
+          $('#geolocationPosition').addClass('good');
+        };
+        
+        var displayError = function(error) {
+          console.log(error);
+          $('#geolocationError').text(error.message + '(' + error.code + ')');
+          $('#geolocationError').addClass('bad');
+        };
+        
+        if (navigator.geolocation) {
+          displaySupport(true);
+          navigator.geolocation.getCurrentPosition(displayPosition, displayError);
+        } else {
+          displaySupport(false);
+        }
+        
+      });
+    </script>
+  </head>
+  <body>
+    <p>
+      <span>Geolocation supported:</span>
+      <span id="geolocationSupported"></span>
+    </p>
+    <p>
+      <span>Geolocation position (lat, lng):</span>
+      <span id="geolocationPosition"></span>
+    </p>
+    <p>
+      <span>Geolocation error:</span>
+      <span id="geolocationError"></span>
+    </p>
+  </body>
+</html>
