@@ -21,6 +21,8 @@ Try this in your browser console.
 
 [http://translate.google.com/translate_tts?q=geolocated+audioguide+test](http://translate.google.com/translate_tts?q=geolocated+audioguide+test)
 
+I downloaded this MP3 file and used [http://www.oggconvert.com/](http://www.oggconvert.com/) to convert it to OGG.
+
 ### GeoNames web service to find geotagged wikipedia articles for a given lat/lng
 
 See the [GeoNames documentation](http://www.geonames.org/export/wikipedia-webservice.html#findNearbyWikipedia).

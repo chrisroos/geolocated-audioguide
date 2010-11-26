@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Geolocated Audioguide test</title>
+    <style type="text/css" media="screen">
+      .good {
+        color: green;
+      }
+      .bad {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <h2>MP3 test - local file</h2>
+    <ul>
+      <ol class="good">Safari 5 (YES)</ol>
+      <ol class="good">Chrome 9.0.x (YES)</ol>
+      <ol class="bad">Firefox 3.6.12 (NO)</ol>
+    </ul>
+    <audio controls>
+      <source src="test.mp3" />
+    </audio>
+    
+    <h2>MP3 test - google tts url</h2>
+    <ul>
+      <ol class="good">Safari 5 (YES)</ol>
+      <ol class="bad">Chrome 9.0.x (NO)</ol>
+      <ol class="bad">Firefox 3.6.12 (NO)</ol>
+    </ul>
+    <audio controls>
+      <source src="http://translate.google.com/translate_tts?q=geolocated+audioguide+test" />
+    </audio>
+    
+    <h2>OGG test - local file</h2>
+    <ul>
+      <ol class="bad">Safari 5 (NO)</ol>
+      <ol class="bad">Chrome 9.0.x (NO)</ol>
+      <ol class="bad">Firefox 3.6.12 (NO)</ol>
+    </ul>
+    <audio controls>
+      <source src="test.ogg" />
+    </audio>
+  </body>
+  
+</html>
