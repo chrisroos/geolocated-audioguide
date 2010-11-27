@@ -8,15 +8,25 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" charset="utf-8">
       $(function() {
-        var geonamesURL = 'http://ws.geonames.org/findNearbyWikipediaJSON?lat=51.51333&lng=-0.088947';
+        var lat = $('.lat').text();
+        var lng = $('.lng').text();
+        var geonamesURL = 'http://ws.geonames.org/findNearbyWikipediaJSON?lat=' + lat + '&lng=' + lng;
+        var list = $('<ul>');
         $.getJSON(geonamesURL, function(data) {
           $(data.geonames).each(function() {
-            console.log(this.title);
-          })
+            console.log(this);
+            var anchor = $('<a href="http://' + this.wikipediaUrl + '">' + this.title + '</a>');
+            var listItem = $('<li>');
+            listItem.append(anchor);
+            list.append(listItem);
+          });
+          $(document.body).append(list);
         });
       })
     </script>
   </head>
   <body>
+    <h1>Geonames test</h1>
+    <p>Wikipedia articles near <span class="lat">51.51333</span>, <span class="lng">-0.088947</span>.</p>
   </body>
 </html>
