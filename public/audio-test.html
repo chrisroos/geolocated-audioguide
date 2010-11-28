@@ -4,17 +4,25 @@
   <head>
     <meta charset="UTF-8">
     <title>Audio test</title>
-    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css" media="screen">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+      $(function() {
+        $('audio').each(function() {
+          console.log(this.networkState);
+        });
+      })
+    </script>
   </head>
   <body>
     
     <h2>MP3 test - local file</h2>
     <ul>
-      <ol class="good">Safari 5 (YES)</ol>
-      <ol class="good">Chrome 9.0.x (YES)</ol>
-      <ol class="bad">Firefox 3.6.12 (NO)</ol>
-      <ol class="bad">Mozilla 5.0 (Linux; U; Android 2.2; en-gb; HTC Desire Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1 (NO)</ol>
-      <ol class="bad">Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7W367a Safari/531.21.10 (NO)</ol>
+      <li class="good">Safari 5 (YES)</li>
+      <li class="good">Chrome 9.0.x (YES)</li>
+      <li class="bad">Firefox 3.6.12 (NO)</li>
+      <li class="bad">Mozilla 5.0 (Linux; U; Android 2.2; en-gb; HTC Desire Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1 (NO)</li>
+      <li class="bad">Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7W367a Safari/531.21.10 (NO)</li>
     </ul>
     <audio controls>
       <source src="/audio/test.mp3" />
@@ -22,11 +30,11 @@
     
     <h2>MP3 test - google tts url</h2>
     <ul>
-      <ol class="good">Safari 5 (YES)</ol>
-      <ol class="bad">Chrome 9.0.x (NO)</ol>
-      <ol class="bad">Firefox 3.6.12 (NO)</ol>
-      <ol class="bad">Mozilla 5.0 (Linux; U; Android 2.2; en-gb; HTC Desire Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1 (NO)</ol>
-      <ol class="good">Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7W367a Safari/531.21.10 (YES)</ol>
+      <li class="good">Safari 5 (YES)</li>
+      <li class="bad">Chrome 9.0.x (NO)</li>
+      <li class="bad">Firefox 3.6.12 (NO)</li>
+      <li class="bad">Mozilla 5.0 (Linux; U; Android 2.2; en-gb; HTC Desire Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1 (NO)</li>
+      <li class="good">Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7W367a Safari/531.21.10 (YES)</li>
     </ul>
     <audio controls>
       <source src="http://translate.google.com/translate_tts?q=geolocated+audioguide+test" />
@@ -34,15 +42,20 @@
     
     <h2>OGG test - local file</h2>
     <ul>
-      <ol class="bad">Safari 5 (NO)</ol>
-      <ol class="bad">Chrome 9.0.x (NO)</ol>
-      <ol class="bad">Firefox 3.6.12 (NO)</ol>
-      <ol class="bad">Mozilla 5.0 (Linux; U; Android 2.2; en-gb; HTC Desire Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1 (NO)</ol>
-      <ol class="bad">Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7W367a Safari/531.21.10 (NO)</ol>
+      <li class="bad">Safari 5 (NO)</li>
+      <li class="bad">Chrome 9.0.x (NO)</li>
+      <li class="bad">Firefox 3.6.12 (NO)</li>
+      <li class="bad">Mozilla 5.0 (Linux; U; Android 2.2; en-gb; HTC Desire Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1 (NO)</li>
+      <li class="bad">Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7W367a Safari/531.21.10 (NO)</li>
     </ul>
     <audio controls>
       <source src="/audio/test.ogg" />
     </audio>
+    
+    <h2>WAV test - local file</h2>
+    <audio src="/audio/test.wav" controls="controls">
+      Your browser does not support the audio element.
+    </audio>
+    
   </body>
-  
 </html>
