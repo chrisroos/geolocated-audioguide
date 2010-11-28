@@ -6,8 +6,8 @@ This is currently deployed at [http://geolocated-audioguide.heroku.com](http://g
 
 ## TODO
 
-* Flesh out geonames-test.html
-* Add fallback text for browsers that don't support the audio tag
+* Add fallback text for browsers that don't support the audio tag.
+* Create an OGG/Vorbis file - this should work in Firefox.  I currently have OGG/FLAC.
 
 ## Notes
 
