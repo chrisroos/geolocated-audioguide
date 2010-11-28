@@ -29,18 +29,25 @@
 
     %h2 Results
     #testResults
+    
+    - unsupported_message = "Your browser doesn't support the audio tag"
 
     %h3 MP3 local file
     %audio{:src => "/audio/test.mp3", :controls => 'controls'}
+      = unsupported_message
 
     %h3 MP3 google tts url
     %audio{:src => "http://translate.google.com/translate_tts?q=geolocated+audioguide+test", :controls => 'controls'}
+      = unsupported_message
 
     %h3 OGG FLAC local file
     %audio{:src => "/audio/test-flac.ogg", :controls => 'controls'}
+      = unsupported_message
     
     %h3 OGG Vorbis local file
     %audio{:src => "/audio/test-vorbis.ogg", :controls => 'controls'}
+      = unsupported_message
 
     %h3 WAV local file
     %audio{:src => "/audio/test.wav", :controls => 'controls'}
+      = unsupported_message
