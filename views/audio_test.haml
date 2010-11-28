@@ -1,0 +1,43 @@
+!!!
+
+%html
+  %head
+    %meta{:charset => 'UTF-8'}
+    %title Audio test
+    %link{:rel => 'stylesheet', :href => '/stylesheets/style.css', :type => 'text/css', :media => 'screen'}
+    %script{:src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js', :type => 'text/javascript', :charset => 'utf-8'}
+    :javascript
+      $(function() {
+        var testButton = $('#testForm input[type=button]');
+        testButton.click(function() {
+          var results = $('<ul>');
+          $('audio').each(function() {
+            var result = $('<li>' + $(this).attr('src') + ' (' + this.networkState + ')</li>');
+            results.append(result);
+          });
+          $('#testResults').append(results);
+        });
+      });
+
+  %body
+
+    %form#testForm
+      %input{:type => 'button', :value => 'Test the audio support of this browser'}
+      
+    %h2 User Agent:
+    %span#userAgent= request.user_agent
+
+    %h2 Results
+    #testResults
+
+    %h3 MP3 test - local file
+    %audio{:src => "/audio/test.mp3", :controls => 'controls'}
+
+    %h3 MP3 test - google tts url
+    %audio{:src => "http://translate.google.com/translate_tts?q=geolocated+audioguide+test", :controls => 'controls'}
+
+    %h3 OGG test - local file
+    %audio{:src => "/audio/test.ogg", :controls => 'controls'}
+
+    %h3 WAV test - local file
+    %audio{:src => "/audio/test.wav", :controls => 'controls'}
