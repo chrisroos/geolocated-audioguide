@@ -4,10 +4,6 @@ I [wrote about this ages ago](http://chrisroos.co.uk/blog/2009-09-14-pouring-fac
 
 This is currently deployed at [http://geolocated-audioguide.heroku.com](http://geolocated-audioguide.heroku.com).
 
-## TODO
-
-* Add fallback text for browsers that don't support the audio tag.
-
 ## Notes
 
 ### HTML 5 Audio tag
