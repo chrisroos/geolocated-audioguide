@@ -7,7 +7,6 @@ This is currently deployed at [http://geolocated-audioguide.heroku.com](http://g
 ## TODO
 
 * Add fallback text for browsers that don't support the audio tag.
-* Create an OGG/Vorbis file - this should work in Firefox.  I currently have OGG/FLAC.
 
 ## Notes
 
@@ -31,7 +30,8 @@ Try this in your browser console.
 I downloaded this MP3 file and used [ffmpeg](http://www.ffmpeg.org/) to convert it to OGG and WAV.
 
     $ curl "http://translate.google.com/translate_tts?q=geolocated+audioguide+test" -H"User-Agent: User-Agent: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-GB; rv:1.9.2.12) Gecko/20101026 Firefox/3.6.12 GTB7.1" > public/audio/test.mp3
-    $ ffmpeg -i public/audio/test.mp3 public/audio/test.ogg
+    $ ffmpeg -i public/audio/test.mp3 public/audio/test-flac.ogg
+    $ ffmpeg -i public/audio/test.mp3 -acodec libvorbis public/audio/test-vorbis.ogg
     $ ffmpeg -i public/audio/test.mp3 public/audio/test.wav
 
 ### GeoNames web service to find geotagged wikipedia articles for a given lat/lng
