@@ -8,13 +8,26 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
       $(function() {
-        $('audio').each(function() {
-          console.log(this.networkState);
+        var testButton = $('#testForm input[type=button]');
+        testButton.click(function() {
+          var results = $('<ul>');
+          $('audio').each(function() {
+            var result = $('<li>' + $(this).attr('src') + ' (' + this.networkState + ')</li>');
+            results.append(result);
+          });
+          $('#testResults').append(results);
         });
-      })
+      });
     </script>
   </head>
   <body>
+    
+    <form id="testForm">
+      <input type="button" value="Test the audio support of this browser" />
+    </form>
+    
+    <h2>Results</h2>
+    <div id="testResults"></div>
     
     <h2>MP3 test - local file</h2>
     <ul>
@@ -24,8 +37,7 @@
       <li class="bad">Mozilla 5.0 (Linux; U; Android 2.2; en-gb; HTC Desire Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1 (NO)</li>
       <li class="bad">Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7W367a Safari/531.21.10 (NO)</li>
     </ul>
-    <audio controls>
-      <source src="/audio/test.mp3" />
+    <audio src="/audio/test.mp3" controls>
     </audio>
     
     <h2>MP3 test - google tts url</h2>
@@ -36,8 +48,7 @@
       <li class="bad">Mozilla 5.0 (Linux; U; Android 2.2; en-gb; HTC Desire Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1 (NO)</li>
       <li class="good">Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7W367a Safari/531.21.10 (YES)</li>
     </ul>
-    <audio controls>
-      <source src="http://translate.google.com/translate_tts?q=geolocated+audioguide+test" />
+    <audio src="http://translate.google.com/translate_tts?q=geolocated+audioguide+test" controls>
     </audio>
     
     <h2>OGG test - local file</h2>
@@ -48,8 +59,7 @@
       <li class="bad">Mozilla 5.0 (Linux; U; Android 2.2; en-gb; HTC Desire Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1 (NO)</li>
       <li class="bad">Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7W367a Safari/531.21.10 (NO)</li>
     </ul>
-    <audio controls>
-      <source src="/audio/test.ogg" />
+    <audio src="/audio/test.ogg" controls>
     </audio>
     
     <h2>WAV test - local file</h2>
