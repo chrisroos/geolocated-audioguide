@@ -5,3 +5,9 @@ I [wrote about this ages ago](http://chrisroos.co.uk/blog/2009-09-14-pouring-fac
 This is currently deployed at [http://geolocated-audioguide.heroku.com](http://geolocated-audioguide.heroku.com).
 
 More information is available on the [wiki](https://github.com/chrisroos/geolocated-audioguide/wiki).
+
+## TODO
+
+* Move the test results / screenshots from the project to the wiki
+
+* Convert the rest of the static 'test' pages in the project to sinatra/haml
