@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+!!!
 
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Geolocate test</title>
-    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css" media="screen" charset="utf-8">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" charset="utf-8">
+%html
+  %head
+    %meta{:charset => 'UTF-8'}
+    %title Geolocate test
+    %link{:rel => 'stylesheet', :href => '/stylesheets/style.css', :type => 'text/css', :media => 'screen'}
+    %script{:src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js', :type => 'text/javascript', :charset => 'utf-8'}
+    :javascript
       $(function() {
         
         var displaySupport = function(supported) {
@@ -39,20 +39,17 @@
         }
         
       });
-    </script>
-  </head>
-  <body>
-    <p>
-      <span>Geolocation supported:</span>
-      <span id="geolocationSupported"></span>
-    </p>
-    <p>
-      <span>Geolocation position (lat, lng):</span>
-      <span id="geolocationPosition"></span>
-    </p>
-    <p>
-      <span>Geolocation error:</span>
-      <span id="geolocationError"></span>
-    </p>
-  </body>
-</html>
+
+  %body
+
+    %h1 Geolocate test
+    
+    %p
+      %span Geolocation supported:
+      %span#geolocationSupported
+    %p
+      %span Geolocation position (lat, lng):
+      %span#geolocationPosition
+    %p
+      %span Geolocation error:
+      %span#geolocationError
