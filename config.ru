@@ -9,4 +9,8 @@ get '/audio-test' do
   haml :audio_test
 end
 
+get '/geonames-test' do
+  haml :geonames_test
+end
+
 run Sinatra::Application

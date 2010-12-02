@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+!!!
 
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Geolocation Audioguide tests</title>
-    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css" media="screen" charset="utf-8">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" charset="utf-8">
+%html
+  %head
+    %meta{:charset => 'UTF-8'}
+    %title Geonames test
+    %link{:rel => 'stylesheet', :href => '/stylesheets/style.css', :type => 'text/css', :media => 'screen'}
+    %script{:src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js', :type => 'text/javascript', :charset => 'utf-8'}
+    :javascript
       $(function() {
         var lat = $('.lat').text();
         var lng = $('.lng').text();
@@ -23,10 +23,12 @@
           $(document.body).append(list);
         });
       })
-    </script>
-  </head>
-  <body>
-    <h1>Geonames test</h1>
-    <p>Wikipedia articles near <span class="lat">51.51333</span>, <span class="lng">-0.088947</span>.</p>
-  </body>
-</html>
+
+  %body
+
+    %h1 Geonames test
+    
+    %p
+      Wikipedia articles near
+      %span.lat 51.51333
+      %span.lng -0.088947
