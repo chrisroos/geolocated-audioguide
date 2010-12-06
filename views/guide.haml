@@ -1,0 +1,68 @@
+!!!
+
+%html
+  %head
+    %meta{:charset => 'UTF-8'}
+    %title Guide
+    %link{:rel => 'stylesheet', :href => '/stylesheets/style.css', :type => 'text/css', :media => 'screen'}
+    %script{:src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js', :type => 'text/javascript', :charset => 'utf-8'}
+    :javascript
+      $(function() {
+        
+        var setStatus = function(message) {
+          $('#statusMessage').text(message);
+        };
+        
+        var displayPosition = function(position) {
+          setStatus('Found you.');
+          var latitude = position.coords.latitude;
+          var longitude = position.coords.longitude;
+          $('#currentLatitude').text(latitude);
+          $('#currentLongitude').text(longitude);
+          var gmapsLink = $('<a href="http://maps.google.co.uk/maps?q=' + latitude + '+' + longitude + '">(map)</a>');
+          $('#currentLocation').append(gmapsLink);
+          findWikipediaArticles(latitude, longitude);
+        };
+        
+        var displayError = function(error) {
+          setStatus(error.message + '(' + error.code + ')');
+        };
+        
+        if (navigator.geolocation) {
+          setStatus('Determining your location...');
+          navigator.geolocation.getCurrentPosition(displayPosition, displayError);
+        } else {
+          setStatus("Your browser doesn't appear to support geolocation");
+        };
+        
+        var findWikipediaArticles = function(latitude, longitude) {
+          setStatus('Finding wikipedia articles close to you...');
+          var geonamesURL = 'http://ws.geonames.org/findNearbyWikipediaJSON?lat=' + latitude + '&lng=' + longitude;
+          var list = $('<ul>');
+          $.getJSON(geonamesURL, function(data) {
+            $(data.geonames).each(function() {
+              console.log(this);
+              var anchor = $('<a href="http://' + this.wikipediaUrl + '">' + this.title + '</a>');
+              var listItem = $('<li>');
+              listItem.append(anchor);
+              list.append(listItem);
+            });
+            setStatus('All done.');
+          });
+          $(document.body).append(list);
+        };
+      
+      })
+
+  %body
+
+    %h1 Guide
+    
+    %p#currentLocation
+      Wikipedia articles near you
+      %span#currentLatitude
+      %span#currentLongitude
+    
+    #status
+      Status:
+      %span#statusMessage

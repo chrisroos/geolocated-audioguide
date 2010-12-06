@@ -17,4 +17,8 @@ get '/geonames-test' do
   haml :geonames_test
 end
 
+get '/guide' do
+  haml :guide
+end
+
 run Sinatra::Application
